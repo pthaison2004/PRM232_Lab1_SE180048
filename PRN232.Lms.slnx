@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="PRN232.Lms.API/PRN232.Lms.API.csproj" />
+  <Project Path="PRN232.Lms.Repositories/PRN232.Lms.Repositories.csproj" />
+  <Project Path="PRN232.Lms.Services/PRN232.Lms.Services.csproj" />
+</Solution>

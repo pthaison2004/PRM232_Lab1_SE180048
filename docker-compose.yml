@@ -1,0 +1,23 @@
+services:
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: lms-db
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=Password123!
+    ports:
+      - "1433:1433"
+
+  api:
+    image: prn232-lms-api
+    container_name: lms-api
+    build:
+      context: .
+      dockerfile: PRN232.Lms.API/Dockerfile
+    ports:
+      - "5082:8080"
+    environment:
+      - ConnectionStrings__DefaultConnection=Server=db;Database=LmsDb;User Id=sa;Password=Password123!;TrustServerCertificate=True;
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      - db
